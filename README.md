@@ -2,7 +2,6 @@
 <p align="center">A CLI tool to generate beautiful and compact posters for your favorite albums. Free, open-source and configurable print-it-yourself alternative to commercially available services offered by e.g. <a href="https://www.zeitgeistgalerie.de/collections/album-cover-poster">ZeitGeistGalerie</a>, <a href="https://www.redbubble.com/de/shop/album+cover+posters">
 RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1NML8INJHOXOS&sprefix=album+cover+poster%2Caps%2C182&ref=nb_sb_noss_1">Amazon</a>.</p>
 <div align="center">
-    <img src="https://visitor-badge.glitch.me/badge?page_id=maxschroen.artworker" alt="Visitor Badge"/>
     <a href="https://github.com/maxschroen/artworker"><img src="https://img.shields.io/github/stars/maxschroen/artworker" alt="Stars Badge"/></a>
     <a href="https://github.com/maxschroen/artworker/network/members"><img src="https://img.shields.io/github/forks/maxschroen/artworker" alt="Forks Badge"/></a>
     <a href="https://github.com/maxschroen/artworker/pulls"><img src="https://img.shields.io/github/issues-pr/maxschroen/artworker" alt="Pull Requests Badge"/></a>
