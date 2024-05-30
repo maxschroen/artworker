@@ -1,0 +1,128 @@
+{
+    "name": "classic",
+    "version": "1.0",
+    "svg_placeholders": {
+        "file_wrapper_open": "<svg version=\"1.1\" width=\"2100\" height=\"2970\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 2100 2970\">",
+        "background": "<rect x=\"0\" y=\"0\" width=\"2100\" height=\"2970\" fill=\"white\"/>",
+        "album_artwork": "<image x=\"225\" y=\"225\" width=\"1650\" height=\"1650\" xlink:href=\"{artwork_b64}\"/>",
+        "album_title": "<text x=\"225\" y=\"1980\" font-size=\"72\" font-weight=\"700\" font-family=\"Inter\">{album_title}</text>",
+        "album_artist": "<text x=\"225\" y=\"2050\" font-size=\"52\" font-weight=\"200\" font-family=\"Inter\">{album_artist}</text>",
+        "album_copyright": "<text x=\"1875\" y=\"2085\" font-size=\"28\" font-weight=\"700\" text-anchor=\"end\" font-family=\"Inter\">{album_copyright}</text>",
+        "header_separator": "<rect x=\"225\" y=\"2100\" width=\"1650\" height=\"3\" fill=\"black\"/>",
+        "tracklist_item": "<text x=\"{tracklist_item_x}\" y=\"{tracklist_item_y}\" text-anchor=\"{tracklist_item_text_anchor}\" font-size=\"44\" font-weight=\"200\" font-family=\"Inter\">{track_title}</text>",
+        "album_release_label":"<text x=\"225\" y=\"2745\" font-size=\"48\" font-weight=\"200\" font-family=\"Inter\">RELEASE</text>",
+        "album_release_year":"<text x=\"445\" y=\"2745\" font-size=\"48\" font-weight=\"700\" font-family=\"Inter\">{album_release_year}</text>",
+        "album_length_label":"<text x=\"700\" y=\"2745\" font-size=\"48\" font-weight=\"200\" font-family=\"Inter\">ALBUM LENGTH</text>",
+        "album_length":"<text x=\"1090\" y=\"2745\" font-size=\"48\" font-weight=\"700\" font-family=\"Inter\">{album_length}</text>",
+        "color_blob_item":"<circle cx=\"{color_blob_item_x}\" cy=\"{color_blob_item_y}\" r=\"45\" fill=\"{color_hex}\"/>",
+        "file_wrapper_close": "</svg>"
+    },
+    "tracklist_item_coordinates": [
+        { 
+            "x": "225",
+            "y": "2190",
+            "text_anchor": "start"
+        },
+        {
+            "x": "225",
+            "y": "2250",
+            "text_anchor": "start"
+        },
+        {
+            "x": "225",
+            "y": "2310",
+            "text_anchor": "start"
+        },
+        {
+            "x": "225",
+            "y": "2370",
+            "text_anchor": "start"
+        },
+        {
+            "x": "225",
+            "y": "2430",
+            "text_anchor": "start"
+        },
+        {
+            "x": "225",
+            "y": "2490",
+            "text_anchor": "start"
+        },
+        {
+            "x": "225",
+            "y": "2550",
+            "text_anchor": "start"
+        },
+        {
+            "x": "225",
+            "y": "2610",
+            "text_anchor": "start"
+        },
+        {
+            "x": "1875",
+            "y": "2190",
+            "text_anchor": "end"
+        },
+        {
+            "x": "1875",
+            "y": "2250",
+            "text_anchor": "end"
+        },
+        {
+            "x": "1875",
+            "y": "2310",
+            "text_anchor": "end"
+        },
+        {
+            "x": "1875",
+            "y": "2370",
+            "text_anchor": "end"
+        },
+        {
+            "x": "1875",
+            "y": "2430",
+            "text_anchor": "end"
+        },
+        {
+            "x": "1875",
+            "y": "2490",
+            "text_anchor": "end"
+        },
+        {
+            "x": "1875",
+            "y": "2550",
+            "text_anchor": "end"
+        },
+        {
+            "x": "1875",
+            "y": "2610",
+            "text_anchor": "end"
+        }
+    ],
+    "color_blob_item_coordinates": [
+        {
+            "x": "1410",
+            "y": "2720"
+        },
+        {
+            "x": "1515",
+            "y": "2720"
+        },
+        {
+            "x": "1620",
+            "y": "2720"
+        },
+        {
+            "x": "1725",
+            "y": "2720"
+        },
+        {
+            "x": "1830",
+            "y": "2720"
+        }
+    ],
+    "limits": {
+        "tracklist_item_max": 16,
+        "color_blob_item_max": 5
+    }
+}
