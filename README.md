@@ -13,7 +13,7 @@ RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1N
 <p align="center">Like the project and want to learn more about me or my work? Visit my <a href="https://maxschroen.github.io">portfolio & blog page</a>.</p>
 <br>
 <h4 align="center">Attributions</h4>
-<p align="center">CLI Components: <a href="https://github.com/kazhala/InquirerPy">InquirerPy</a> | Color Extraction: <a>Pylette</a> | Typeface: <a href="https://github.com/rsms/inter">Inter</a> | Data: <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html#//apple_ref/doc/uid/TP40017632-CH3-SW1">iTunes Search API</a></p> 
+<p align="center">CLI Components: <a href="https://github.com/kazhala/InquirerPy">InquirerPy</a> | Color Extraction: <a href="https://github.com/qTipTip/Pylette">Pylette</a> | Typeface: <a href="https://github.com/rsms/inter">Inter</a> | Data: <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html#//apple_ref/doc/uid/TP40017632-CH3-SW1">iTunes Search API</a></p> 
 
 
 ## Contents
@@ -26,9 +26,10 @@ RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1N
 
 ## Examples
 <p align="center">
-  <img src="https://github.com/maxschroen/artworker/blob/main/.docs/knocked-loose-a-tear-in-the-fabric-of-life-ep.png?raw=true" width="300" />
-  <img src="https://github.com/maxschroen/artworker/blob/main/.docs/lorde-melodrama.png?raw=true" width="300" /> 
-  <img src="https://github.com/maxschroen/artworker/blob/main/.docs/counterparts-a-eulogy-for-those-still-here.png?raw=true" width="300" />
+  <img src="https://github.com/maxschroen/artworker/blob/main/.docs/knocked-loose-a-tear-in-the-fabric-of-life-ep.jpg?raw=true" width="300" />
+  <img src="https://github.com/maxschroen/artworker/blob/main/.docs/lorde-melodrama.jpg?raw=true" width="300" /> 
+  <img src="https://github.com/maxschroen/artworker/blob/main/.docs/misery-signals-of-malice-and-the-magnum-heart.jpg?raw=true" width="300">
+  <img src="https://github.com/maxschroen/artworker/blob/main/.docs/counterparts-a-eulogy-for-those-still-here.jpg?raw=true" width="300" />
 </p>
 
 ## Requirements
