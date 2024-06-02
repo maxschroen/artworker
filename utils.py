@@ -2,7 +2,11 @@
 import re
 import unicodedata
 ## -- EXT LIB IMPORTS --
-import Pylette as pylette # https://github.com/qTipTip/Pylette
+from PIL import Image
+import numpy as np
+from sklearn.cluster import KMeans
+## -- LOCAL IMPORTS --
+from config import LUMINANCE_WEIGHTS
 
 ## -- FUNCTIONS --
 def format_search_string(user_search: str) -> str:
@@ -66,29 +70,53 @@ def pad(num: int, size: int) -> str:
     padded_num = f"{num:0{size}}"
     return padded_num
 
-# @TODO: At some point replace this with self-built solution
-def extract_colors_from_image(image_path: str) -> pylette.Palette:
+def extract_colors_kmeans(image_path: str, num_colors: int, resize = False) -> list:
     """
-    Extracts a color palette from an image file.
+    Extracts a color palette from an image using KMeans clustering.
 
     Args:
-    image_path (str): Path to image file.
+    image_path (str): Path to the image file.
+    num_colors (int): Number of colors to extract.
+    resize (bool): Resize the image to 256x256 pixels.
 
     Returns:
-    palette (pylette.Palette): Extracted color palette.
+    colors (list | np.ndarray): List of RGB color values.
     """
-    palette = pylette.extract_colors(image=image_path, palette_size=5, resize=True, mode='MC', sort_mode='luminance')
+    image = Image.open(image_path)                                                                  # Open the image file, resize if necessary
+    if resize:
+        image = image.resize((256, 256))
+    image_array = np.array(image)                                                                   # Reshape the image array to a 2D array of pixels
+    pixels = image_array.reshape(-1, 3)                       
+    kmeans = KMeans(n_clusters=num_colors)                                                          # Fit the KMeans model to the pixel data
+    kmeans.fit(pixels)              
+    colors = kmeans.cluster_centers_                                                                # Get the RGB color values of the cluster centers                   
+    colors = colors.astype(np.uint8)                                                                # Convert the colors to uint8 data type
+    palette = colors.tolist()                                                                       # Convert the colors to a list                 
     return palette
 
-def rgb_to_hex(rgb: tuple[int,int,int]) -> str:
+def compute_luminance(color: list) -> float:
     """
-    Converts an RGB color tuple to a hex color string.
+    Computes the luminance of an RGB color using the weighted sum of the color channels.
 
     Args:
-    rgb (tuple[int,int,int]): RGB color tuple.
+    color (list): RGB color list.
+
+    Returns:
+    luminance (float): Luminance value.
+    """
+    luminance = sum(LUMINANCE_WEIGHTS[i] * color[i] for i in range(len(color))) / 255
+    return luminance                                                                                  
+
+
+def rgb_to_hex(rgb: list | np.ndarray) -> str:
+    """
+    Converts an RGB color list to a hex color string.
+
+    Args:
+    rgb (list | np.ndarray): RGB color list.
 
     Returns:
     hex_color (str): Hex color string.
     """
-    hex_color = '#%02x%02x%02x' % rgb
+    hex_color = '#%02x%02x%02x' % tuple(rgb)
     return hex_color

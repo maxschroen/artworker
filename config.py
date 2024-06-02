@@ -202,6 +202,9 @@ ISO_3166_1_ALPHA_2_CC = {
     "Zimbabwe": "zw"
 }
 
+# Weighted RGB to Luminance conversion weights
+LUMINANCE_WEIGHTS = [0.2126, 0.7152, 0.0722]
+
 # iTunes API base URLs
 SEARCH_API_BASE_URL = "https://itunes.apple.com/search"
 LOOKUP_API_BASE_URL = 'https://itunes.apple.com/lookup'

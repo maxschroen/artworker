@@ -1,4 +1,4 @@
-<h1 align="center">artworker</h1>
+<h1 align="center">🎨 artworker</h1>
 <p align="center">A CLI tool to generate beautiful and compact posters for your favorite albums. Free, open-source and configurable print-it-yourself alternative to commercially available services offered by e.g. <a href="https://www.zeitgeistgalerie.de/collections/album-cover-poster">ZeitGeistGalerie</a>, <a href="https://www.redbubble.com/de/shop/album+cover+posters">
 RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1NML8INJHOXOS&sprefix=album+cover+poster%2Caps%2C182&ref=nb_sb_noss_1">Amazon</a>.</p>
 <div align="center">
@@ -11,13 +11,13 @@ RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1N
 </div>
 <br>
 <p align="center">Like the project and want to learn more about me or my work? Visit my <a href="https://maxschroen.github.io">portfolio & blog page</a>.</p>
-<br>
 <h4 align="center">Attributions</h4>
-<p align="center">CLI Components: <a href="https://github.com/kazhala/InquirerPy">InquirerPy</a> | Color Extraction: <a href="https://github.com/qTipTip/Pylette">Pylette</a> | Typeface: <a href="https://github.com/rsms/inter">Inter</a> | Data: <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html#//apple_ref/doc/uid/TP40017632-CH3-SW1">iTunes Search API</a></p> 
+<p align="center"><a href="https://github.com/kazhala/InquirerPy">InquirerPy</a> - <a href="https://github.com/rsms/inter">Inter</a> - <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html#//apple_ref/doc/uid/TP40017632-CH3-SW1">iTunes Search API</a> - <a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a> - <a href="https://github.com/python-pillow/Pillow">Pillow</a> - <a href="https://github.com/psf/requests">requests</a> - <a href="https://github.com/numpy/numpy">NumPy</a></p>
 
 
 ## Contents
 - [Examples](#examples)
+- [Changelog](#changelog)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [How To Use](#how-to-use)
@@ -31,6 +31,20 @@ RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1N
   <img src="https://github.com/maxschroen/artworker/blob/main/.docs/misery-signals-of-malice-and-the-magnum-heart.jpg?raw=true" width="300">
   <img src="https://github.com/maxschroen/artworker/blob/main/.docs/counterparts-a-eulogy-for-those-still-here.jpg?raw=true" width="300" />
 </p>
+
+## Changelog
+
+#### v0.1
+- Removed Pylette dependency
+  - Image color extraction implemented via K-Means-Clustering (initially seemd counterintuitive but results are of higher visual quality than those from median cut)
+
+<details>
+  <summary>Older Versions</summary>
+  <h4>v0.0</h4>
+  <ul>
+    <li>Initial release</li>
+  </ul>
+</details>
 
 ## Requirements
 - [Python](https://www.python.org/downloads/) (tested for > 3.9)
@@ -46,7 +60,20 @@ git clone https://github.com/maxschroen/artworker.git
 # OR clone using GitHub CLI
 gh repo clone maxschroen/artworker
 ```
-2. Install required packages from ```requirements.txt```
+
+2. Create virtual environment
+```bash
+# Navigate to folder
+cd artworker
+# Install virtualenv
+pip install virtualenv
+# Initiate venv
+python3.12 -m venv artworker
+# Activate venv
+source artworker/bin/activate
+```
+
+3. Install required packages from ```requirements.txt```
 ```bash
 # Install requirements
 pip install -r requirements.txt
@@ -71,8 +98,7 @@ A simple way to do this from the console is (assuming you have [Inkscape](https:
 inkscape --export-type="png" YOUR_FILE_NAME.svg
 ```
 ## Roadmap
-- Fix of known issues and limitations
-- Remove Pylette dependency
+- Fix of [known issues and limitations](#known-issues--limitations)
 - Additional layout templates
 - Additional layout configuration options (color blob shapes, track numbers, individual track time, etc.)
 - Introduction of color scheme options
@@ -80,7 +106,7 @@ inkscape --export-type="png" YOUR_FILE_NAME.svg
 
 
 ## Known Issues & Limitations
-As the script is in a fairly early stage of development, there currently are some known issues and limitations. These are all on the [roadmap](#known-issues--limitations) and will be fixed at some point.
+As the script is in a fairly early stage of development, there currently are some known issues and limitations. These are all on the [roadmap](#roadmap) and will be fixed at some point.
 - Albums with more than 16 tracks are currently not supported. All tracks exceeding this limit will be cut off and missing in the generated file.
 - Significantly long album titles will overflow to the right.
 - Significantly long track titles will overflow to the right / left or collide with other track titles on the same line.

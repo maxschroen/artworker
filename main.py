@@ -579,7 +579,7 @@ def main() -> None:
     encoded_artwork = convert_image_to_base64(artwork_file_path)                                        
     album['artwork_b64'] = "data:image/png;base64," + str(encoded_artwork, encoding='utf-8')
     # Extract colors from album artwork
-    album['colors'] = [utils.rgb_to_hex(color.rgb) for color in utils.extract_colors_from_image(artwork_file_path)] 
+    album['colors'] = [utils.rgb_to_hex(color) for color in sorted(utils.extract_colors_kmeans(artwork_file_path, 5, True), key=lambda color: utils.compute_luminance(color), reverse=True)]
     # ------------------------------------- #
     # Get user selected template path
     template_path = get_template_path_from_options(config.TEMPLATE_OPTIONS)   
@@ -601,7 +601,6 @@ def main() -> None:
     # Initiate graceful exit            
     clean_up_and_exit(config.TEMP_ARTWORK_DIR_PATH)
     # ------------------------------------- #
-
 if (__name__ == "__main__"):
     try:
         # Execute main script
