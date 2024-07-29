@@ -2,7 +2,7 @@
 import re
 import unicodedata
 ## -- EXT LIB IMPORTS --
-from PIL import Image
+from PIL import Image, ImageFont
 import numpy as np
 from sklearn.cluster import KMeans
 ## -- LOCAL IMPORTS --
@@ -120,3 +120,60 @@ def rgb_to_hex(rgb: list | np.ndarray) -> str:
     """
     hex_color = '#%02x%02x%02x' % tuple(rgb)
     return hex_color
+
+def get_font_size(element: str) -> int:
+    """
+    Extracts font size from an XML element.
+
+    Args:
+    element (str): XML element.
+
+    Returns:
+    font_size (int): Font size.
+    """
+    font_size = int(re.search(r"font-size=\"([0-9]+)\"", element).group(1))
+    return font_size
+
+def get_font_weight(element):
+    """
+    Extracts font weight from an XML element.
+
+    Args:
+    element (str): XML element.
+
+    Returns: 
+    font_weight (int): Font weight.
+    """
+    font_weight = int(re.search(r"font-weight=\"([0-9]+)\"", element).group(1))
+    return font_weight
+
+def check_overflow(text, element, calc_values):
+    """
+    Evaluates whether text overflows the document width and returns the element or a replacement element.
+
+    Args:
+    text (str): Text to evaluate.
+    element (str): XML element.
+    calc_values (dict): Boundary values for calculation.
+    overflow_replacement (str): Replacement element.
+
+    Returns:
+    element (str): Element or replacement element.
+    """
+    font_size = get_font_size(element)
+    font_weight = get_font_weight(element)
+    font_name = calc_values['font_weight_mapping'][str(font_weight)]
+    kerning_factor = calc_values['weight_kerning_factors'][str(font_weight)]
+    font = ImageFont.truetype(font_name, font_size)
+    text_length_px = font.getlength(text)  * kerning_factor
+    overflows = bool((calc_values['dims']['doc_width'] - 2 * calc_values['dims']['x_padding']) - (round(text_length_px, None)) < 0)
+    return overflows
+
+# def check_collision(element1, text1, element2, text2):
+#   font_size = get_font_size(element)
+#   font_weight = get_font_weight(element)
+#   font = ImageFont.truetype("Inter-Bold.otf", FONT_SIZE)
+#   x = font.getlength(text1) * KERNING_FACTOR_700
+#   y = font.getlength(text2) * KERNING_FACTOR_700
+#   collides =  bool((calc_values['dims']['doc_width'] - 2 * calc_values['dims']['x_padding']) - (round((x + y), None)) < 0)
+#   return collides

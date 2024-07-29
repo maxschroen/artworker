@@ -493,16 +493,16 @@ def populate_template(template: dict, album: dict, tracks: list) -> str:
             template['svg_placeholders']['file_wrapper_open'],
             template['svg_placeholders']['background'],
             template['svg_placeholders']['album_artwork'].format(artwork_b64 = album["artwork_b64"]),
-            template['svg_placeholders']['album_title'].format(album_title = html.escape(album["name"].upper())),
-            template['svg_placeholders']['album_artist'].format(album_artist = html.escape(album["artist"].upper())),
-            template['svg_placeholders']['album_copyright'].format(album_copyright = html.escape(album["copyright"].upper())),
+            template['svg_placeholders']['album_title'].format(album_title = html.escape(album["name"].upper()), overflow = template['overflow_compensation'] if utils.check_overflow(text = html.escape(album["name"].upper()), element = template['svg_placeholders']['album_title'], calc_values = template['calc_values']) else ""),
+            template['svg_placeholders']['album_artist'].format(album_artist = html.escape(album["artist"].upper()), overflow = template['overflow_compensation'] if utils.check_overflow(text = html.escape(album["artist"].upper()), element = template['svg_placeholders']['album_artist'], calc_values = template['calc_values']) else ""),
+            template['svg_placeholders']['album_copyright'].format(album_copyright = html.escape(album["copyright"].upper()), overflow = template['overflow_compensation'] if utils.check_overflow(text = html.escape(album["copyright"].upper()), element = template['svg_placeholders']['album_copyright'], calc_values = template['calc_values']) else ""),
             template['svg_placeholders']['header_separator'],
-            "\n".join([template['svg_placeholders']['tracklist_item'].format(tracklist_item_x = template['tracklist_item_coordinates'][idx]['x'], tracklist_item_y = template['tracklist_item_coordinates'][idx]['y'], tracklist_item_text_anchor = template['tracklist_item_coordinates'][idx]['text_anchor'], track_title = html.escape(track['name'])) for idx, track in enumerate(tracks) if idx < template['limits']['tracklist_item_max']]),
+            "\n".join([template['svg_placeholders']['tracklist_item'].format(tracklist_item_x = str(template['tracklist_item_coordinates'][idx]['x']), tracklist_item_y = str(template['tracklist_item_coordinates'][idx]['y']), tracklist_item_text_anchor = template['tracklist_item_coordinates'][idx]['text_anchor'], track_title = html.escape(track['name'])) for idx, track in enumerate(tracks) if idx < template['limits']['tracklist_item_max']]),
             template['svg_placeholders']['album_release_label'],
             template['svg_placeholders']['album_release_year'].format(album_release_year = album["release_date"].split('-')[0]),
             template['svg_placeholders']['album_length_label'],
             template['svg_placeholders']['album_length'].format(album_length = f"{album['length_time_parts'][0]}:{album['length_time_parts'][1]}"),
-            "\n".join([ template['svg_placeholders']['color_blob_item'].format(color_blob_item_x = template['color_blob_item_coordinates'][idx]['x'], color_blob_item_y = template['color_blob_item_coordinates'][idx]['y'], color_hex = color) for idx, color in enumerate(album['colors']) if idx < template['limits']['color_blob_item_max']]),
+            "\n".join([ template['svg_placeholders']['color_blob_item'].format(color_blob_item_x = str(template['color_blob_item_coordinates'][idx]['x']), color_blob_item_y = str(template['color_blob_item_coordinates'][idx]['y']), color_hex = color) for idx, color in enumerate(album['colors']) if idx < template['limits']['color_blob_item_max']]),
             template['svg_placeholders']['file_wrapper_close']
         ])
     except Exception as e:

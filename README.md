@@ -34,12 +34,20 @@ RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1N
 
 ## Changelog
 
-#### v0.1
-- Removed Pylette dependency
-  - Image color extraction implemented via K-Means-Clustering (initially seemd counterintuitive but results are of higher visual quality than those from median cut)
+#### v0.2
+- Added overflow checking and mitigation
+  - Works for all single per-line elements (album title, artist and copyright notice)
 
 <details>
   <summary>Older Versions</summary>
+  <h4>v0.1</h4>
+  <ul>
+    <li>Removed Pylette dependency
+      <ul>
+        <li>Image color extraction implemented via K-Means-Clustering (initially seemd counterintuitive but results are of higher visual quality than those from median cut)</li>
+      </ul>
+    </li>
+  </ul>
   <h4>v0.0</h4>
   <ul>
     <li>Initial release</li>
@@ -99,14 +107,10 @@ inkscape --export-type="png" YOUR_FILE_NAME.svg
 ```
 ## Roadmap
 - Fix of [known issues and limitations](#known-issues--limitations)
-- Additional layout templates
-- Additional layout configuration options (color blob shapes, track numbers, individual track time, etc.)
-- Introduction of color scheme options
 - Introduction of configurable iTunes QR codes & Spotify scan codes to integrate with the layouts
 
 
 ## Known Issues & Limitations
 As the script is in a fairly early stage of development, there currently are some known issues and limitations. These are all on the [roadmap](#roadmap) and will be fixed at some point.
 - Albums with more than 16 tracks are currently not supported. All tracks exceeding this limit will be cut off and missing in the generated file.
-- Significantly long album titles will overflow to the right.
 - Significantly long track titles will overflow to the right / left or collide with other track titles on the same line.
