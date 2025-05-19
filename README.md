@@ -76,7 +76,7 @@ cd artworker
 # Install virtualenv
 pip install virtualenv
 # Initiate venv
-python3.12 -m venv artworker
+python3 -m venv artworker
 # Activate venv
 source artworker/bin/activate
 ```
