@@ -9,8 +9,6 @@ RedBubble</a> or <a href="https://www.amazon.com/s?k=album+cover+posters&crid=1N
     <a href="https://github.com/maxschroen/artworker/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/maxschroen/artworker?color=2b9348"></a>
     <a href="https://github.com/maxschroen/artworker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/maxschroen/artworker?color=2b9348" alt="License Badge"/></a>
 </div>
-<br>
-<p align="center">Like the project and want to learn more about me or my work? Visit my <a href="https://maxschroen.github.io">portfolio & blog page</a>.</p>
 <h4 align="center">Attributions</h4>
 <p align="center"><a href="https://github.com/kazhala/InquirerPy">InquirerPy</a> - <a href="https://github.com/rsms/inter">Inter</a> - <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html#//apple_ref/doc/uid/TP40017632-CH3-SW1">iTunes Search API</a> - <a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a> - <a href="https://github.com/python-pillow/Pillow">Pillow</a> - <a href="https://github.com/psf/requests">requests</a> - <a href="https://github.com/numpy/numpy">NumPy</a></p>
 
